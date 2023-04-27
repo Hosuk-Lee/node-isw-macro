@@ -1,0 +1,4 @@
+relnmCnfrmBrncd,text,실명확인부점코드,실명확인부점코드,실명확인부점코드,,
+relnmCnfrmCertiCtBilnYn,text,실명확인증표징구여부,실명확인증표징구여부,실명확인증표징구여부,,
+relnmCnfrmPtimCncycd,text,실명확인시통화코드,실명확인시통화코드,실명확인시통화코드,,
+withhldExptmYn,text,원천징수면제여부,원천징수면제여부,원천징수면제여부,,

@@ -1,0 +1,51 @@
+PUT
+
+https://k5-designer.apps.fswdomain.koreacentral.aroapp.io/api/v1/solutions/TEST/tracks/master/namespaces/pcon/PropertyDefinitions/-/actions/CreatePropertyDefinition
+
+
+{
+  "localIdentifier": "type_text",
+  "type": "text",
+  "label": "label",
+  "shortLabel": "shrot label",
+  "notes": "notes"
+}
+{
+    "localIdentifier": "type_Decimal",
+    "type": "decimal",
+    "label": "Label",
+    "shortLabel": "Short Label",
+    "decimalPlaces": "2",
+    "notes": "Notes"
+}
+{
+    "localIdentifier": "type_Date",
+    "type": "date",
+    "label": "Label",
+    "shortLabel": "Short Label",
+    "notes": "Notes"
+}
+{
+    "localIdentifier": "type_Timestamp",
+    "type": "timestamp",
+    "label": "Label",
+    "shortLabel": "Short Label",
+    "notes": "Notes"
+}
+{
+    "localIdentifier": "type_Enum",
+    "type": "selectionElement",
+    "label": "Label",
+    "shortLabel": "Short Label",
+    "selectionElements": [
+        {
+            "key": "Key_Enum1",
+            "notes": "Notes_Enum"
+        },
+        {
+            "key": "Key_Enum2",
+            "notes": "Notes_Enum"
+        }
+    ],
+    "notes": "Notes"
+}

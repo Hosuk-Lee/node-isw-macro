@@ -1,0 +1,4 @@
+prdctLagClsfiCd,text,상품대분류코드,상품대분류코드,상품대분류코드,,
+prdctMedmClsfiCd,text,상품중분류코드,상품중분류코드,상품중분류코드,,
+prdctTmpltCd,text,상품템플릿코드,상품템플릿코드,상품템플릿코드,,
+prdctNo,text,상품번호,상품번호,상품번호,,

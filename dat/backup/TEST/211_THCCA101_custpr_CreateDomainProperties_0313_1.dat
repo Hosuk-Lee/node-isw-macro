@@ -1,0 +1,4 @@
+groupCoCd,text,그룹회사코드,그룹회사코드,그룹회사코드,,
+custIdnfr,text,고객식별자,고객식별자,고객식별자,,
+custMgtNo,text,고객관리번호,고객관리번호,고객관리번호,,
+prdctCtrcCustRelshpDstcd,text,상품계약고객관계구분,상품계약고객관계구분,상품계약고객관계구분,,

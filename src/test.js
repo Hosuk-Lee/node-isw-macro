@@ -1,0 +1,10 @@
+const path = require('node:path');
+console.log(path);
+console.log(process.env.PATH);
+console.log(__dirname, __filename);
+//console.log(path.basename(__dirname));
+console.log(path.sep);
+console.log(path.dirname(path.basename(__dirname)));
+console.log(path.resolve(__dirname, '..'));
+console.log(path.resolve(__dirname, '../dat'));
+console.log(path.resolve());
