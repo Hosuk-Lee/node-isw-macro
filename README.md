@@ -12,7 +12,8 @@ v19.7.0
 localIdentifier	type	label	shortLabel	notes	decimalPlaces	selectionElements
 country_code,text,국가코드,국가코드,국가코드,,
 amount,decimal,금액,금액,금액,2,
-<p>
+</p>
+
 2. 매크로실행
 $ cd node-isw-macro/src
 $ node main.js
