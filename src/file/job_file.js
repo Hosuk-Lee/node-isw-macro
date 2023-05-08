@@ -7,10 +7,12 @@ const checkFiles = () => {
   const fileList = fs.readdirSync(dataPath);
   const iswFileList = fileList.filter(f => {
     // console.log("Condition",f);
-    return ( f.includes('CreateDomainNamespace')
-          || f.includes('CreateDomainProperties') 
-          || f.includes('CreateDbCollection') 
-          || f.includes('CreateApiProperties') 
+    return (
+      f.includes('CreateDomainNamespace') ||
+      f.includes('CreateDomainProperties') ||
+      f.includes('CreateDbCollection') ||
+      f.includes('CreateApiProperties') ||
+      f.includes('ImportPropertyInDomainEntity')
     );
   });
   // console.log('fileList ',fileList, fl)
