@@ -22,6 +22,9 @@ const process = async () => {
     if ( filename.includes("CreateDbCollection") ) {
       await iswApiService.createDbCollection(DAT_PATH,filename);
     }
+    if (filename.includes("ImportPropertyInDomainEntity")) {
+      await iswApiService.importPropertyInDomainEntity(DAT_PATH, filename);
+    }
   }
 
   // 프로젝트 생성

@@ -63,4 +63,4 @@ const getIswToken = async (id,pw) => {
   }
 
 
-module.exports = {getAccessToken}
+module.exports = { getAccessToken, getIswToken };
