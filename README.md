@@ -25,6 +25,7 @@ $ node main.js<br>
     ```
     $ cd node-isw-macro/<br>
     $ npm i<br>
+    $ npm i -g jest<br>
     ```
 
 1. 데이터 작업 (dat 디렉토리)<br>
