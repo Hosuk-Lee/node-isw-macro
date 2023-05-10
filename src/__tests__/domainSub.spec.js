@@ -41,7 +41,7 @@ describe('request/isw/DomainSub/importPropertyEntity', () => {
     );
   });
 
-  it('should create JSON for request body of ImportPropertiesInDomain correctly', () => {
+  it('should create BASE & JSON for request body of ImportPropertiesInDomain correctly', () => {
     const URI = filename.split('_');
     const root_entity = URI[0];
     const project_acronym = URI[1];
@@ -54,9 +54,8 @@ describe('request/isw/DomainSub/importPropertyEntity', () => {
     });
     const dataList = data.split(os.EOL);
 
-    let body = dataList.map((v, i) => {
-      let col = v.split(',');
-      let domain_namespace = 'core';
+    const body = dataList.map((v, i) => {
+      let col = v.split(','); 
       let propertyName = col[0];
       let localIdentifier = col[0];
       return {

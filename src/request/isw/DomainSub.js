@@ -29,7 +29,7 @@ const createDomainProperties = async (path, filename) => {
     body.label = col[2];
     body.shortLabel = col[3];
     body.notes = col[4];
-    body.selectionElements = col[6].startsWith(' ') ? null : col[6];
+    body.selectionElements = col[6]?.startsWith(' ') ? null || undefined : col[6];
     console.log(body.label);
     const res = await apiCall(url, body, index);
     //console.log(res,'@',index, body)
