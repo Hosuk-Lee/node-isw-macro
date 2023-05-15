@@ -75,7 +75,7 @@ $ node main.js<br>
 ### * root entity 내 미리 생성한 (factory/instance) command에 Input property 일괄 등록 처리
 
 1. 데이터 작업 (dat 디렉토리)<br>
-  - ISW Solution Designer에서 `(factory/instance) command` 는 미리 생성해야함
+  - ISW Solution Designer에서 `(factory/instance) command` 및 `Command_Input` 미리 생성해야함
   - 파일명 작성방법<br>
     `{RootEntity명}_{ProjectAcronym}_{도메인네임스페이스명}_{Command명}_Properties.dat`<br>
     - `일괄작업 with jest`에서 사용했던 파일명에서 `{Command명}` 만 추가
