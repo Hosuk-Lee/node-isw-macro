@@ -1,0 +1,26 @@
+https://k5-designer.apps.fswdomain.koreacentral.aroapp.io/api/v1/solutions/NPSFU101/tracks/main/namespaces/psbk/entities/CreatePassbookWritingStatus_Input/actions/AddProperties
+
+{
+  "properties": [
+    {
+      "propertyName": "groupCoCd",
+      "propertyDefinition": {
+        "identifier": "psbk:groupCoCd",
+        "localIdentifier": "groupCoCd",
+        "namespacePrefix": "psbk",
+        "namespaceType": "domain"
+      },
+      "association": "optional"
+    },
+    {
+      "propertyName": "acno",
+      "propertyDefinition": {
+        "identifier": "psbk:acno",
+        "localIdentifier": "acno",
+        "namespacePrefix": "psbk",
+        "namespaceType": "domain"
+      },
+      "association": "optional"
+    }
+  ]
+}
