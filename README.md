@@ -78,7 +78,7 @@ $ node main.js<br>
   - ISW Solution Designer에서 `(factory/instance) command` 는 미리 생성해야함
   - 파일명 작성방법<br>
     `{RootEntity명}_{ProjectAcronym}_{도메인네임스페이스명}_{Command명}_Properties.dat`<br>
-    - `상단의 파일명에 {Command명} 만 추가`
+    - `일괄작업 with jest에서  파일명에 {Command명} 만 추가`
     - Command명 뒤에 `_Input`은 생략 (프로그램에서 `Command명_Input` 으로 변환함)
     - 예시 PassbookWritingStatus_NPSFU101_psbk_CreatePassbookWritingStatus_Properties.dat
 
