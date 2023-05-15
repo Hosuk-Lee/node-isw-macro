@@ -1,6 +1,7 @@
 const os = require('os');
 const fs = require('fs');
 const axios = require('axios');
+const { error } = require('console');
 
 const createDomainProperties = async (path, filename) => {
   const BASE =
@@ -29,7 +30,7 @@ const createDomainProperties = async (path, filename) => {
     body.label = col[2];
     body.shortLabel = col[3];
     body.notes = col[4];
-    body.selectionElements = col[6].startsWith(' ') ? null : col[6];
+    body.selectionElements = col[6]?.startsWith(' ') ? null || undefined : col[6];
     console.log(body.label);
     const res = await apiCall(url, body, index);
     //console.log(res,'@',index, body)
@@ -105,6 +106,40 @@ const importPropertyInDomainEntity = async (path, filename) => {
   await apiCall(BASE, requestBody);
 };
 
+const AddPropertiesToCommandInRootEntity = async (path, filename) => {
+  const URI = filename.split('_');
+  if ((URI[3]?.undefined || null) || URI[3]?.startsWith('Properties')) throw error('파일명에 커맨드이름이 없습니다.');
+  const BASE =
+    //`https://k5-designer.apps.fswdomain.koreacentral.aroapp.io/api/v1/solutions/{project_acronym}/tracks/main/namespaces/{domain_namespace}/entities/{factoryMethod_name}/actions/AddProperties`;
+    `https://k5-designer.apps.fswdomain.koreacentral.aroapp.io/api/v1/solutions/${URI[1]}/tracks/main/namespaces/${URI[2]}/entities/${URI[3]}_Input/actions/AddProperties`;
+
+  const data = fs.readFileSync(path + filename, {
+    encoding: 'utf-8',
+    flag: 'r',
+  });
+  const dataList = data.split(os.EOL);
+
+  const body = dataList.map((v, i) => {
+    let col = v.split(',');
+    let domain_namespace = URI[2];
+    let propertyName = col[0];
+    let localIdentifier = col[0];
+    return {
+      propertyName: propertyName,
+      propertyDefinition: {
+        identifier: domain_namespace + ':' + localIdentifier,
+        localIdentifier: localIdentifier,
+        namespacePrefix: domain_namespace,
+        namespaceType: 'domain',
+      },
+      association: 'optional',
+    };
+  });
+  const requestBody = { properties: body };
+  // console.log(JSON.stringify(requestBody));
+  await apiCall(BASE, requestBody);
+};
+
 const makeUrl = (base, filename) => {
   const project_name = filename.split('_')[1];
   const domain_namespace = filename.split('_')[2];
@@ -130,7 +165,7 @@ const apiCall = async (url, body, index) => {
     return ret.status;
   } catch (err) {
     console.log(err.response.status, 'Error ----', err.response.data);
-    // console.log(err.response.status, 'Error ----', JSON.stringify(err.response.data.errors[0].context));
+    console.log(err.response.status, 'Error ----', JSON.stringify(err.response.data.errors[0].context));
     return err.code;
   }
   // console.log(index, ret.status);
@@ -155,5 +190,6 @@ module.exports = {
   createDomainProperties,
   createDbCollection,
   importPropertyInDomainEntity,
+  AddPropertiesToCommandInRootEntity,
   typeConverter,
 };
