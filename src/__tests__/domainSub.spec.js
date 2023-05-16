@@ -73,41 +73,6 @@ describe('request/isw/DomainSub/importPropertyEntity', () => {
   });
 });
 
-describe('request/isw/DomainSub/AddPropertiesToCommandRootEntity', () => {
-  it('should create BASE & JSON for request body of ImportPropertiesInDomain correctly', () => {
-    const URI = filename.split('_');
-    const root_entity = URI[0];
-    const project_acronym = URI[1];
-    const domain_namespace = URI[2];
-    const factoryMethod_name = URI[3];
-    const BASE = `https://k5-designer.apps.fswdomain.koreacentral.aroapp.io/api/v1/solutions/${project_acronym}/tracks/main/namespaces/${domain_namespace}/entities/${factoryMethod_name}_Input/actions/AddProperties`;
-    console.log(BASE);
-    const data = fs.readFileSync(path.join(dirPath, filename), {
-      encoding: 'utf-8',
-      flag: 'r',
-    });
-    const dataList = data.split(os.EOL);
-
-    const body = dataList.map((v, i) => {
-      let col = v.split(',');
-      let propertyName = col[0];
-      let localIdentifier = col[0];
-      return {
-        propertyName: propertyName,
-        propertyDefinition: {
-          identifier: domain_namespace + ':' + localIdentifier,
-          localIdentifier: localIdentifier,
-          namespacePrefix: domain_namespace,
-          namespaceType: 'domain',
-        },
-        association: 'optional',
-      };
-    });
-    expect(JSON.stringify(body)).toBeTruthy();
-    // console.log(JSON.stringify(body));
-  });
-});
-
 describe('request/isw/DomainSub/CreatePropertyInDomainEntity', () => {
   jest.setTimeout(10000);
 
