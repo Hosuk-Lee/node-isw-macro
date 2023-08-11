@@ -9,15 +9,14 @@ import { getIswToken } from '../token/isw_token';
 global.token = null;
 
 beforeAll(async () => {
-  const id = '직원번호';
-  const pw = '$비밀번호';
+  const id = '3160457';
+  const pw = '$it2637b';
   global.token = await getIswToken(id, pw);
 });
 
 const dirPath = path.join(__dirname, '../../dat/');
 const filename =
-  'PassbookWritingStatus_NPSFU101_psbk_CreatePassbookWritingStatus_Properties.dat';
-  //'PassbookWritingStatus_NPSFU101_psbk_Properties.dat';
+  'DetailTransactionAmountHistory_NFCTK002_trnhis_CreateDtalsTranAmtHist_Properties.dat';
 
 describe('request/isw/DomainSub/AddPropertiesToCommandRootEntity', () => {
   it('should contain name of command in filename', () => {

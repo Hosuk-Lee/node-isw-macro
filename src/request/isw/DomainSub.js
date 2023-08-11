@@ -1,7 +1,7 @@
 const os = require('os');
 const fs = require('fs');
 const axios = require('axios');
-const { error } = require('console');
+const { error, log } = require('console');
 
 const createDomainProperties = async (path, filename) => {
   const BASE =
@@ -21,7 +21,7 @@ const createDomainProperties = async (path, filename) => {
     body.localIdentifier = col[0];
     if (col[1].includes('text') || col[1].includes('decimal')) {
       body.type = col[1];
-      body.decimalPlaces = col[5];      
+      body.decimalPlaces = col[5];
     } else {
       let convertedType = typeConverter(col[1]);
       body.type = convertedType.type;
@@ -31,7 +31,7 @@ const createDomainProperties = async (path, filename) => {
     body.shortLabel = col[3];
     body.notes = col[4];
     body.selectionElements = col[6]?.startsWith(' ') ? null || undefined : col[6];
-    console.log(body.label);
+    // console.log(body.label);
     const res = await apiCall(url, body, index);
     //console.log(res,'@',index, body)
   }
@@ -164,8 +164,15 @@ const apiCall = async (url, body, index) => {
     let ret = await axios(config);
     return ret.status;
   } catch (err) {
-    console.log(err.response.status, 'Error ----', err.response.data);
-    console.log(err.response.status, 'Error ----', JSON.stringify(err.response.data.errors[0].context));
+    if (err.response.status != "409") {
+      console.log(err.response.status, 'Error ----', err.response.data);
+      console.log(
+        err.response.status,
+        'Error ----',
+        JSON.stringify(err.response.data.errors[0].context)
+      );
+    }
+
     return err.code;
   }
   // console.log(index, ret.status);

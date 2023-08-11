@@ -1,0 +1,5 @@
+cnprtCncycd,text,상대통화코드,상대통화코드,상대통화코드,0
+cnprtBnkCd,text,상대은행코드,상대은행코드,상대은행코드,0
+cnprtAcno,text,상대계좌번호,상대계좌번호,상대계좌번호,0
+cnprtPrdctCtrcNth,DECIMAL(7|0),상대상품계약회차,상대상품계약회차,상대상품계약회차,0
+cnprtTranAmt,DECIMAL(18|3),상대거래금액,상대거래금액,상대거래금액,0
