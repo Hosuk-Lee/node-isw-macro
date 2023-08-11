@@ -5,12 +5,14 @@ const { getIswToken } = require('./token/isw_token');
 const {
   createDomainProperties,
   importPropertyInDomainEntity,
+  AddPropertiesToCommandInRootEntity,
 } = require('./request/isw/DomainSub');
 
 const dirPath = path.join(__dirname, '../dat/');
 const jobList = [
-  'createDomainProperties:Domain에 porperty들 등록',
-  'importPropertyInDomainEntity:Entity에 property들을 import',
+  'createDomainProperties:               Domain에 porperty들 등록',
+  'importPropertyInDomainEntity:         Entity에 property들을 import',
+  'AddPropertiesToCommandInRootEntity:   Root Entity 내 command에 property들을 import',
 ];
 const userSelect = ['다른 작업 진행 (계속)', '작업 종료 (Exit)']
 
@@ -42,6 +44,12 @@ const processIswWorks = async () => {
     case 'importPropertyInDomainEntity':
       console.log('Entity에 property들의 import를 진행합니다');
       await importPropertyInDomainEntity(dirPath, fileList[chosenJob]);
+      break;
+    case 'AddPropertiesToCommandInRootEntity':
+      console.log(
+        'Root Entity 내 command에 property들의 import를 진행합니다'
+      );
+      await AddPropertiesToCommandInRootEntity(dirPath, fileList[chosenJob]);
       break;
     default:
       break;
