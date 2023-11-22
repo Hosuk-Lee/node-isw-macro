@@ -6,7 +6,7 @@ const {
   createDomainProperties,
   importPropertyInDomainEntity,
   AddPropertiesToCommandInRootEntity,
-} = require('./request/isw/DomainSub');
+} = require('./request/isw/domainExcel');
 
 const dirPath = path.join(__dirname, '../dat/');
 const jobList = [
@@ -25,7 +25,7 @@ const login = async () => {
 const processIswWorks = async () => {
   const fileList = fs
     .readdirSync(dirPath)
-    .filter((file) => fs.statSync(`${dirPath}/${file}`).isFile());
+    .filter((file) => fs.statSync(`${dirPath}/${file}`).isFile()).filter(file => path.extname(file).includes('.xlsx'));
 
   const chosenJob = readlineSync.keyInSelect(
     jobList,
@@ -38,18 +38,22 @@ const processIswWorks = async () => {
   
   switch (jobList[chosenJob].split(':')[0]) {
     case 'createDomainProperties':
-      console.log('Domain에 porperty들 등록을 진행합니다');
+      console.log(
+        `Domain에 porperty들 등록을 진행합니다 : ${fileList[chosenFile]}`
+      );
       await createDomainProperties(dirPath, fileList[chosenFile]);
       break;
     case 'importPropertyInDomainEntity':
-      console.log('Entity에 property들의 import를 진행합니다');
-      await importPropertyInDomainEntity(dirPath, fileList[chosenJob]);
+      console.log(
+        `Entity에 property들의 import를 진행합니다 : ${fileList[chosenFile]}`
+      );
+      await importPropertyInDomainEntity(dirPath, fileList[chosenFile]);
       break;
     case 'AddPropertiesToCommandInRootEntity':
       console.log(
-        'Root Entity 내 command에 property들의 import를 진행합니다'
+        `Root Entity 내 command에 property들의 import를 진행합니다 : ${fileList[chosenFile]}`
       );
-      await AddPropertiesToCommandInRootEntity(dirPath, fileList[chosenJob]);
+      await AddPropertiesToCommandInRootEntity(dirPath, fileList[chosenFile]);
       break;
     default:
       break;

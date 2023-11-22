@@ -36,7 +36,7 @@ $ node main.js<br>
   * 파일명 작성방법<br>
     `{RootEntity명}_{ProjectAcronym}_{도메인네임스페이스명}_Properties.dat`<br>
 
-  * 파일 레이아웃<br>
+  * 파일 레이아웃<br>is
   `localIdentifier type label shortLabel notes decimalPlaces selectionElements`<br>
     - 예시 1<br>
       - `groupCoCd,CHAR(3),그룹회사코드,그룹회사코드,그룹회사코드,0, `
