@@ -1,7 +1,0 @@
-groupCoCd,CHAR(3),그룹회사코드,그룹회사코드,그룹회사코드,0, 
-acno,CHAR(20),계좌번호,계좌번호,계좌번호,0, 
-cncycd,CHAR(3),통화코드,통화코드,통화코드,0, 
-balPtrnDstcd,CHAR(4),잔액유형구분코드,잔액유형구분코드,잔액유형구분코드,0, 
-prdctCtrcNth,DECIMAL(7|0),상품계약회차,상품계약회차,상품계약회차,0, 
-balBaseYmd,CHAR(8),잔액기준년월일,잔액기준년월일,잔액기준년월일,0, 
-msrvEnrolTranYn,CHAR(1),잡수입편입거래여부,잡수입편입거래여부,잡수입편입거래여부,0,
